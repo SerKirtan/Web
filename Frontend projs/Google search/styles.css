@@ -1,0 +1,105 @@
+body{
+    background-color:rgba(0, 0, 0, 0.87);
+    color: white;
+}
+.redirect , .aredirect{
+    text-align: right; 
+    margin-top: 1em;
+}
+.aredirect > h1{
+    text-align: left;
+    padding-left: 30px;
+    color: #357ae8;
+}
+.redirect a , .aredirect a {
+    background-color: rgba(47, 45, 48, 0.852);
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 1em;
+    text-decoration: none;
+}
+.redirect a:hover , .aredirect a:hover , .redirect a:visited , .aredirect a:visited {
+    color: white;
+    text-decoration: none;
+}
+.redirect a:hover , .aredirect a:hover {
+    background-color: rgb(29, 27, 27);
+    font-size: 17px;
+}
+.gsearch, .isearch{
+    text-align: center;
+}
+.glogo{
+    width: 30%;
+    display: block;
+    margin: auto;
+    margin-top: 9.5em;
+    height: 300px;
+    object-fit: cover;
+}
+.input_element1, .input_element2{
+    height: 4%;
+    border-radius: 1em;
+    color: white;
+}
+.input_element2{
+    width: 11%;
+    font-size: 25px;
+    padding: 7px 5px 7px 5px;
+    margin-top: 1.4em;
+    background-color: rgb(59, 59, 59);
+    border-radius: .5em;
+    border: 0px;
+}
+.input_element1{
+    width: 35%;
+    padding: 12px 0px 12px 25px;
+    font-size: 30px;
+    background-color:rgba(0, 0, 0, 0);
+    border: .5px solid rgb(194, 192, 192);
+}
+.input_element2:hover{
+    border: 1px solid white;
+}
+
+.input_element1:hover, .input_element1:focus{
+    border: 0px;
+    background-color: rgb(47, 45, 45);
+    box-shadow: 5px;
+    outline: none;
+}
+.asearch{
+    padding-left: 30px;
+}
+.field{
+    height: 25px;
+}
+.field label{
+    display: inline-block;
+    column-width: 220px;
+}
+.field input[type=text]{
+    height: 25px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    border: 1px solid whitesmoke;
+}
+.field input[type=text]:focus{
+    outline: none;
+}
+.asearch input[type=submit]{
+    background-color: #357ae8;
+    border: 0px;
+    height: 32px;
+    font-size: 15px;
+    margin-left: 643px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#field1, #field2, #field3, #field4{
+    width: 535px;
+}
+.asearch input[type=submit]:hover{
+    background-color: #70a1ee;
+}

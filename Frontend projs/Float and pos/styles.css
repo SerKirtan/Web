@@ -1,0 +1,96 @@
+body {
+    max-width: 98%;
+    margin: 0 auto;
+    background-image: url('images/mainbg.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* #menu {
+	background: #0099CC;
+	background: linear-gradient(to top,  #18b5e9d2,  #fb53a7ce);
+	color: aliceblue;
+	height: 51px;
+	padding-left: 18px;
+	border-radius: 50px;
+}
+#menu li{
+    float:left;
+} */
+div.box {
+    background-color: rgba(83, 226, 226, 0.615);
+    border-radius: 8px;
+    margin: 3% 10%;
+    padding: 1em;
+    height: 5em;
+}
+
+div.box img.right {
+    float: right;
+}
+
+div.box img.left {
+    float: left;
+}
+
+div.first-box {
+    margin-top: 5em;
+}
+
+.user {
+    height: 5em;
+    width: 5em;
+    object-fit: cover;
+    background-color: transparent;
+}
+
+.para {
+    max-width: 98%;
+    margin: 0 10%;
+}
+
+div.para div.head {
+    background-color: rgba(203, 216, 210, 0.618);
+    margin-top: 4em;
+    padding: 0 1em;
+    border-radius: 2em 6em 0em 2em;
+    max-width: 10em;
+    color: blueviolet;
+}
+
+@media screen and (max-width:767px) {
+    div.box {
+        height: 7em;
+        overflow: scroll;
+    }
+}
+
+.navbar {
+    position: fixed;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    top: 1em;
+    height: 50px;
+    background-color: rgba(106, 230, 222, 0.659);
+    box-shadow: 0px 0px 10px gray;
+    display: flex;
+    line-height: 50px;
+    transition: .4s;
+    border-radius: 5em;
+    max-width: 95%;
+}
+
+nav a {
+    flex: 1;
+    max-width: max-content;
+    text-decoration: none;
+    margin-right: 40px;
+}
+nav a:hover{
+    color: black;
+    font-size: 1.2em;
+    transition: .4s;
+}

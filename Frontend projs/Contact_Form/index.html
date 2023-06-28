@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact us</title>
+</head>
+
+<body>
+    <main>
+        <div id="headtop">
+            <img id="contact_icon" src="Images/contact.jpg" alt="contact_icon">
+            <h1 id="heading">Contact our support team!</h1>
+            <p>Our support team is alyways ready to help you. <br> Fill the the form below.</p>
+        </div>
+        <div id="formarea" id="opacity">
+            <form id="form">
+                <div class="info">
+                    <h3 id="fname">First name : </h3><input type="text" id="fname" required>
+                </div>
+                <div class="info">
+                    <h3>Last name : </h3><input type="text" id="lname">
+                </div>
+                <div class="info">
+                    <h3>Email : </h3><input type="email" id="email" required>
+                    <h3>
+                        Country :</h3>
+                        <select id="country">
+                            <option name="sel">-Select an option-</option>
+                            <option name="India">India</option>
+                            <option name="USA">USA</option>
+                            <option name="Canada">Canada</option>
+                            <option name="UK">UK</option>
+                            <option name="China">China</option>
+                        </select>
+    
+                </div>
+                <div class="info" id="address">
+                    <h3>Address the issue : </h3><textarea name="issue" id="issue" required></textarea>
+                
+                </div>
+                <h3 id="leavearea"></h3>
+                <div><input id="submitForm" type="submit" value="Sumbit Ticket"></div>
+                <h3 id="leavearea"></h3>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

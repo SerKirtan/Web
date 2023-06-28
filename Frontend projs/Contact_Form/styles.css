@@ -1,0 +1,78 @@
+html {
+    font-family: cursive, sans-serif;
+    height: 100%;
+}
+
+body {
+    background-image: url("images/Bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: fill;
+    color: rgba(0, 255, 255, 0.834);
+}
+
+#headtop {
+    font-size: 130%;
+    text-align: center;
+    margin-top: 2em;
+}
+#headtop p{
+    margin-top:0;
+}
+#heading {
+    font-weight: 100%;
+    color: rgba(0, 255, 255, 0.874);
+    margin-bottom:0;
+}
+
+#contact_icon {
+    border-radius: 5%;
+    height:10%;
+    display: block;
+    margin: auto;
+}
+
+#formarea{
+    border-radius: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.781);
+    margin: 0 20%;
+    background-color: rgba(119, 136, 153, 0.753);
+}
+#form{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(255, 255, 0, 0.827);
+    border-radius: 5%;
+    margin: 0 10%;
+}
+#fname{
+    padding-top: 1%;
+}
+.info input , .info textarea , .info select{
+    width: 100%;
+    background-color: rgb(187, 255, 255);
+    border-radius: 5px;
+}
+.info h3{
+    margin-bottom: 1%;
+}
+#lname, #email, #country{
+    font-size: 1.2em;
+}
+#submitForm{
+    margin: 0 44%;
+    height: 2.5em;
+    background-color: bisque;
+    border-radius: 10em;
+    border: none;
+}
+#submitForm:hover{
+    font-size: 1.25em;
+    margin: 0 42%;
+    height: 2.5em;
+    background-color: rgba(98, 98, 231, 0.595);
+    border-radius: 8em;
+    border: none;
+    cursor: pointer;
+    transition: 1s;
+}
+

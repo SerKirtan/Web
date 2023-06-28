@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Search</title>
+    </head>
+    <body>
+        <div class="aredirect">
+            <a href="index.html">Google search</a>
+            <a href="image.html">Image search</a>
+            <h1>Adavanced Search</h1>
+            <br>
+        </div>
+        <div class="asearch">
+            <br>
+            <form action="https://google.com/search" name="f" target="_blank">
+                <div class="field">
+                    <label for="field1">all these words:</label>
+                    <input type="text" class="textinput" id="field1" value=""  name="as_q">
+                </div>
+                <br>
+                <div class="field">
+                    <label for="field2">this exact word or phrase: </label>
+                    <input type="text" class="textinput" id="field2" value=""  name="as_epq">
+                </div>
+                <br>
+                <div class="field">
+                    <label for="field3">any of this words: </label>
+                    <input type="text" class="textinput" id="field3" value=""  name="as_oq">
+                </div>
+                <br>
+                <div class="field">
+                    <label for="field4">none of these words: </label>
+                    <input type="text" class="textinput" id="field4" value=""  name="as_eq">
+                </div>
+                <br>
+                <div class="field">
+                    <label for="field5">numbers ranging from: </label>
+                    <input type="text" class="textinput1" id="field5" value=""  name="as_nlo">
+                    <span class="seperator">to</span>
+                    <input type="text" class="textinput2" id="field5" value=""  name="as_nhi">
+                </div>
+                <br><br>
+                <input type="submit" value="Advanced Search">
+            </form>
+        </div>
+
+    </body>
+</html>
