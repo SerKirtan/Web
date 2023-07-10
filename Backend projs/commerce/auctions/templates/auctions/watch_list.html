@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+{% block title %} Watch list {% endblock %}
+{% block body %}
+{% for listing in listings %}
+<div class="d-flex justify-content-center">
+    <div class="card p-4 m-2 col-lg-3 col-md-4 col-sm-12">
+        {% if listing.is_finished %}
+        <h3 style="color: red; font-weight: bold;">Auction has Ended</h3>
+        <small style="color: green;">
+            {% if listing.bids.all.count == 0 %}
+            The auction was closed with no bids
+            {% else %}
+            {{ listing.bids.first.user }} won the auction by amount {{ listing.bids.first.amount }}
+            {% endif %}
+        </small>
+        {% endif %}
+        <h4><a href="{% url 'listing' listing.id %}">{{ listing.item }}</a></h4>
+        <img src="{{ listing.image }}">
+        <h5 class="my-2">
+            {% if listing.bids.all.count > 0 %}
+            $ {{ listing.bids.first.amount }}
+            {% else %}
+            $ {{ listing.price }}
+            {% endif %}
+        </h5>
+        {% if listing.bids.all.count > 0 %}
+        <small>
+            Highest bidder: {{ listing.bids.first.user }}
+        </small>
+        {% endif %}
+        {% if not listing.is_finished %}
+        <small class="card-text muted">
+            Ends {{ listing.end_time }}
+        </small>
+        {% endif %}
+    </div>
+</div>
+    {% empty %}
+    <h1 class="d-flex justify-content-center">List empty</h1>
+    
+{% endfor %}
+{% endblock %}

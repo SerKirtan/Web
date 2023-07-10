@@ -1,0 +1,113 @@
+{% extends 'auctions/layout.html' %}
+
+{% block title %} Listing {{ listing.id }} {% endblock %}
+
+
+{% block body %}
+<div class="d-flex justify-content-center" style="color: blueviolet; font-size: large; background-color: bisque;">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<div class="d-flex justify-content-center">
+    {% if ended %}
+    <h1 style="color: red; font-weight: bold;">Auction has ended</h1>
+</div>
+{% if listing.bids.all.count == 0 %}
+<h2 style="color: #0c855d;"> The auction was closed with no bids</h2>
+{% else %}
+<div class="d-flex justify-content-center">
+    <h2 style="color: green;">{{ listing.bids.first.user }} won the auction by amount
+        {{ listing.bids.first.amount }}
+    </h2>
+</div>
+{% endif %}
+{% endif %}
+<div class="d-flex justify-content-center">
+    <div class="card p-4 m-2 col-lg-3 col-md-4 col-sm-12">
+        <h1>Listing:{{ listing.item }}</h1>
+        <h4>Ending at {{ listing.end_time }}</h4>
+        <img src="{{ listing.image }}" alt="<Listing Image>">
+        <div>
+            {% if listing.bids.all.count > 0 %}
+            <h2>Current bid : {{ listing.bids.first.amount }}</h2>
+            {% if listing.bids.first.user == request.user %}
+            <h3>Your bid is the highest bid</h3>
+            {% endif %}
+            {% else %}
+            <h2 style="color: brown;">Starting bid : {{ listing.price }}</h2>
+            {% endif %}
+            {% if request.user != listing.user and request.user != listing.bids.first.user and not listing.is_finished %}
+            <form method="POST" action="{% url 'place_bid' auction_id=listing.id %}" class="form-inline">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ bid_form.amount }}
+                    <input class="btn btn-primary" type="submit" value="Place Bid" />
+                </div>
+            </form>
+            {% endif %}
+            {% if request.user == listing.user and not ended %}
+            <form method="POST" action="{% url 'close_auction' auction_id=listing.id  %}">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="submit" value="Close auction" />
+            </form>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <form method="POST" action="{% url 'watch_auction' auction_id=listing.id %}">
+                {% csrf_token %}
+                {% if isWatching %}
+                <input class="btn btn-danger" type="submit" value="Stop watching" />
+                {% else %}
+                <input class="btn btn-primary" type="submit" value="Watch auction" />
+                {% endif %}
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% if request.user.is_authenticated %}
+
+<div class="d-flex justify-content-center">
+    <form method="POST" action="{% url 'comment' auction_id=listing.id %}">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            {{ comment_form.comment }}
+            <input class="btn btn-primary" type="submit" value="Post" />
+        </div>
+    </form>
+</div>
+{% endif %}
+
+<div class="d-flex justify-content-center">
+    <h4 class="mb-0">Recent comments</h4>
+</div>
+<div class="d-flex justify-content-center">
+    <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+</div>
+{% for comment in listing.comments.all %}
+<div class="d-flex justify-content-center">
+    <div class="card text-dark" style="width: 40em;">
+        <div class="card-body p-4">
+            <div>
+                <h6 class="fw-bold mb-1">{{ comment.user }}</h6>
+                <div class="d-flex align-items-center mb-3">
+                    <small class="mb-0">
+                        {{ comment.time }}
+                    </small>
+                </div>
+                <p class="mb-0">
+                    {{ comment.comment }}
+                </p>
+            </div>
+            </p>
+        </div>
+    </div>
+</div>
+{% empty %}
+<h3 class="d-flex justify-content-center">There are no comments on this Listing</h3>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %} Create Listing {% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <h2 style="font-weight: bold;">Create a new listing</h2>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <input class="px-3 py-2 btn-primary" type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+{% block title %} Categories {% endblock %}
+{% block body %}
+{% for listing in auctions %}
+<div class="d-flex justify-content-center">
+    {% if not listing.is_finished %}
+    <div class="card p-4 m-2 col-lg-3 col-md-4 col-sm-12">
+        <h4><a href="{% url 'listing' listing.id %}">{{ listing.item }}</a></h4>
+        <img src="{{ listing.image }}">
+        <h5 class="my-2">
+            {% if listing.bids.all.count > 0 %}
+            $ {{ listing.bids.first.amount }}
+            {% else %}
+            $ {{ listing.price }}
+            {% endif %}
+        </h5>
+        <small class="card-text muted">
+            Ends {{ listing.end_time }}
+        </small>
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

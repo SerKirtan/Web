@@ -1,0 +1,11 @@
+{% extends "auctions/layout.html" %}
+{% block title %} Categories {% endblock %}
+{% block body %}
+<div class="d-flex justify-content-center">
+    <ul class="list-group">
+        {% for category in categories %}
+        <li class="list-group-item"><a href="{% url 'openCategory' type=category.name %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
