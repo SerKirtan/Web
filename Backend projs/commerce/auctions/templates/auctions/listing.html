@@ -18,9 +18,9 @@
     <h1 style="color: red; font-weight: bold;">Auction has ended</h1>
 </div>
 {% if listing.bids.all.count == 0 %}
+<div class="d-flex justify-content-center">
 <h2 style="color: #0c855d;"> The auction was closed with no bids</h2>
 {% else %}
-<div class="d-flex justify-content-center">
     <h2 style="color: green;">{{ listing.bids.first.user }} won the auction by amount
         {{ listing.bids.first.amount }}
     </h2>
