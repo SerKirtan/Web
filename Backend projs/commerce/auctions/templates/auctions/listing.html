@@ -4,17 +4,17 @@
 
 
 {% block body %}
+{% if messages %}
 <div class="d-flex justify-content-center" style="color: blueviolet; font-size: large; background-color: bisque;">
-    {% if messages %}
     <ul class="messages">
         {% for message in messages %}
         <li>{{ message }}</li>
         {% endfor %}
     </ul>
-    {% endif %}
 </div>
+{% endif %}
+{% if ended %}
 <div class="d-flex justify-content-center">
-    {% if ended %}
     <h1 style="color: red; font-weight: bold;">Auction has ended</h1>
 </div>
 {% if listing.bids.all.count == 0 %}
@@ -72,13 +72,15 @@
 {% if request.user.is_authenticated %}
 
 <div class="d-flex justify-content-center">
-    <form method="POST" action="{% url 'comment' auction_id=listing.id %}">
-        {% csrf_token %}
-        <div class="input-group mb-3">
-            {{ comment_form.comment }}
-            <input class="btn btn-primary" type="submit" value="Post" />
-        </div>
-    </form>
+    <div>
+        <form method="POST" action="{% url 'comment' auction_id=listing.id %}">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                {{ comment_form.comment }}
+                <input class="btn btn-primary" type="submit" value="Post" />
+            </div>
+        </form>
+    </div>
 </div>
 {% endif %}
 
